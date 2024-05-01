@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Create the .env file and write the following line in the file: "MONGODB_URI=mongodb+srv://phucvohoangbkcs:IArRTyqflZgEX5ny@cluster0.wrienzh.mongodb.net/dadn"
+
 ## Getting Started
 
 First, run the development server:
