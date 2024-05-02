@@ -1,9 +1,3 @@
-export async function getDataHumi() {
-    const response = await fetch("");
-    const data = await response.json();
-    return data;
-}
-
 export async function getDataTemp() {
     const response = await fetch("");
     const data = await response.json();
