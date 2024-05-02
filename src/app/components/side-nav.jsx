@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
+import { useSession } from 'next-auth/react';
 import { SIDENAV_ITEMS } from '../../constants';
 import { Icon } from '@iconify/react';
 
+
 const SideNav = () => {
+  const { data: session } = useSession();
   return (
     <div className="md:w-60 bg-white h-screen flex-1 fixed border-r border-zinc-200 hidden md:flex">
       <div className="flex flex-col space-y-6 w-full">
@@ -21,6 +23,8 @@ const SideNav = () => {
         </Link>
 
         <div className="flex flex-col space-y-2  md:px-6 ">
+          <div className=' text-xl'>Welcome, </div>
+          <div className=' text-xl text-teal-700 font-semibold'>{session?.user?.name}</div>
           {SIDENAV_ITEMS.map((item, idx) => {
             return <MenuItem key={idx} item={item} />;
           })}

@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import { SIDENAV_ITEMS } from '../../constants';
 import { Icon } from '@iconify/react';
 import { motion, useCycle } from 'framer-motion';
@@ -61,7 +60,7 @@ const HeaderMobile = () => {
                 <MenuItem>
                   <Link
                     href={item.path}
-                    onClick={() => toggleOpen()}
+                    onClick={toggleOpen}
                     className={`flex w-full text-2xl ${item.path === pathname ? 'font-bold' : ''}`}
                   >
                     {item.title}
@@ -168,7 +167,7 @@ const MenuItemWithSubMenu = ({
               {subItem.title}
             </Link>
           </MenuItem>
-        ))}
+        ))}     
       </div>
     </>
   );
