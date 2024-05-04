@@ -8,5 +8,9 @@ export default async function Register() {
 
   if (session) redirect("/Homepage");
 
-  return <RegisterForm />;
+  return (
+    <div className=' bg-smart-home'>
+      <RegisterForm />
+    </div>
+  );
 }

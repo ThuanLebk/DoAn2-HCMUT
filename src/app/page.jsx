@@ -9,7 +9,7 @@ export default async function Home() {
   if (session) redirect("/Homepage");
 
   return (
-    <main>
+    <main className=" bg-smart-home">
       <LoginForm />
     </main>
   );
