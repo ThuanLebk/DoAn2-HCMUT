@@ -1,10 +1,11 @@
 "use client"
-import InputSlider from "../Components/InputSlider"
+import FanCard from "../Components/FanCard"
 
 const Fan = () => {
   return (
     <>
-      <InputSlider/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+      <FanCard/>
     </>
   )
 }

@@ -1,12 +1,13 @@
 "use client"
-import Control from "../Components/Control"
+import LampCard from "../components/LampCard"
 
 
 const Light = () => {
     
   return (
     <>
-      <Control/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+      <LampCard/>
     </>
     
   )
