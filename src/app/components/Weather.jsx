@@ -26,7 +26,7 @@ const Weather = () => {
     
         // Set up the interval to fetch data every X milliseconds.
         // For example, to refresh data every 5 seconds, set the interval to 5000 milliseconds.
-        const intervalId = setInterval(fetchAndSetData, 3000);
+        const intervalId = setInterval(fetchAndSetData, 10000);
     
         // Clean up the interval on component unmount.
         return () => clearInterval(intervalId);
@@ -38,21 +38,28 @@ const Weather = () => {
     
   return (
     <>
-        <div className=" w-3/4 flex justify-center items-center flex-col mb-7">
+        {/* <div className=" w-3/4 flex justify-center items-center flex-col mb-7">
             <div className=" font-bold text-2xl">{dataTemp && dataTemp.updated_at}</div>
-        </div>
+        </div> */}
+        {
+          // console.log(dataLight) 
+        }
         <div className=" w-3/4 flex justify-center items-center flex-col">
             <img src ="https://cdn-icons-png.flaticon.com/512/3354/3354557.png" width="350px"></img>
             <div className=" relative justify-between items-center mb-7">
-              <div className=" mr-10 flex items-center justify-center">
+              <div className=" mr-10 flex items-top justify-center">
                 <div className=" inline-block">
                   <div className="border-none text-2xl font-bold">{t("cur.temp")}</div>
-                  <div className="border-none font-bold text-2xl items-center">{dataTemp && dataTemp.last_value}</div>
+                  <div className="border-none font-bold text-2xl items-center">{dataTemp && 'Last value: ' + dataTemp.lastValue}</div>
+                  <div className="border-none font-bold text-2xl items-center">{dataTemp &&'Last updated at: ' + convertUTCtoLocal(dataTemp.updatedAt.toString())}</div>
                 </div>
 
                 <div className=" inline-block ml-40">
                   <div className="border-none text-2xl font-bold">{t("cur.light")}</div>
-                  <div className="border-none font-bold text-2xl">{dataLight && dataLight.last_value}</div>
+                  <div className="border-none font-bold text-2xl">{dataLight && 'Last value: ' + dataLight.lastValue}</div>
+                  <div className="border-none font-bold text-2xl">{dataLight && 'Last updated at: ' + convertUTCtoLocal(dataLight.updatedAt.toString())
+}</div>
+
                 </div>
               </div>
             </div>

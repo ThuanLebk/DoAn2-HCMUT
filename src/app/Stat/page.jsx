@@ -1,11 +1,13 @@
 "use client"
-import LineChart from "../Components/LineChart"
+import LightChart from "../components/LightChart"
+import TempChart from "../components/TempChart"
 
 const Stat = () => {
   return (
-    <>
-      <LineChart/>
-    </>
+    <div className=" w-11/12">
+      <TempChart/>
+      <LightChart/>
+    </div>
   )
 }
 

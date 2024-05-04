@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export async function fetchCurrentValueFromAdafruit(feedKey) {
-    const ADAFRUIT_IO_USERNAME = '';
-    const ADAFRUIT_IO_KEY = '';
+    const ADAFRUIT_IO_USERNAME = 'thuanlebk473';
+    const ADAFRUIT_IO_KEY = 'aio_Pgfx0857GlUHjxcwo26G2a2qa0qI';
     const url = `https://io.adafruit.com/api/v2/${ADAFRUIT_IO_USERNAME}/feeds/${feedKey}/data/last`;
 
     try {
@@ -27,9 +27,33 @@ export async function fetchCurrentValueFromAdafruit(feedKey) {
     }
 }
 
+export async function fetchAllValueFromAdafruit(feedKey) {
+    const ADAFRUIT_IO_USERNAME = 'thuanlebk473';
+    const ADAFRUIT_IO_KEY = 'aio_Pgfx0857GlUHjxcwo26G2a2qa0qI';
+    const url = `https://io.adafruit.com/api/v2/${ADAFRUIT_IO_USERNAME}/feeds/${feedKey}/data`;
+
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                'X-AIO-Key': ADAFRUIT_IO_KEY,
+            },
+        });
+        // Uncomment below to log the raw response data
+        // console.log("Adafruit Response Data:", response.data);
+
+        const lastValue = response.data.value;
+        // const updatedAt = response.data.updated_at;
+
+        return lastValue
+    } catch (error) {
+        console.error('Error fetching current value from Adafruit:', error);
+        throw new Error('Unable to fetch current value from Adafruit');
+    }
+}
+
 export async function addNewValueToAdafruit(feedKey, newValue) {
-    const ADAFRUIT_IO_USERNAME = '';
-    const ADAFRUIT_IO_KEY = '';
+    const ADAFRUIT_IO_USERNAME = 'thuanlebk473';
+    const ADAFRUIT_IO_KEY = 'aio_Pgfx0857GlUHjxcwo26G2a2qa0qI';
     const url = `https://io.adafruit.com/api/v2/${ADAFRUIT_IO_USERNAME}/feeds/${feedKey}/data/last`;
 
     try {
@@ -39,7 +63,7 @@ export async function addNewValueToAdafruit(feedKey, newValue) {
             },
         });
         // Uncomment below to log the raw response data
-        // console.log("Adafruit Response Data:", response.data);
+        console.log("Adafruit Response Data:", response.data);
 
         const toggleValue = {
             value: newValue,
@@ -53,7 +77,7 @@ export async function addNewValueToAdafruit(feedKey, newValue) {
         });
 
         // Uncomment below to log the response of POST request
-        // console.log("POST Response Data:", response.data);
+        console.log("POST Response Data:", response.data);
 
         return toggleValue;
     } catch (error) {

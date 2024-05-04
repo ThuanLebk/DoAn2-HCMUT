@@ -7,7 +7,7 @@ import { fetchCurrentValueFromAdafruit, addNewValueToAdafruit } from '../utils/d
 
 const InputSlider = () => {
   const [value, setValue] = useState(0);
-  const feedKey = 'smarthome.fan';  // Replace this with your actual feed key
+  const feedKey = 'fan-control';  // Replace this with your actual feed key
 
   useEffect(() => {
     // Function to fetch and set the initial slider value from Adafruit
@@ -37,10 +37,15 @@ const InputSlider = () => {
     setValue(newValue);
   };
 
-  const handleSlideCommitted = async (event, newValue) => {
-    console.log('Setting new value:', newValue);
+  const handleSlideCommitted = async (event, newvalue) => {
+    console.log('Setting new value:', newvalue);
     try {
-      await addNewValueToAdafruit(feedKey, newValue.toString());
+      let updateValue = ''
+      if(newvalue==0){updateValue='6'}
+      else if(newvalue<=30){updateValue='3'}
+      else if(newvalue<=70){updateValue='4'}
+      else if(newvalue<=100){updateValue='5'}
+      await addNewValueToAdafruit(feedKey, updateValue);
     } catch (error) {
       console.error('Failed to set new value:', error);
     }

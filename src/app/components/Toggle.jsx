@@ -48,17 +48,18 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
       boxSizing: 'border-box',
     },
 }));
+
 const Toggle = () => {
   const [powerOn, setPowerOn] = useState(false);
 
-  const feedKeys = ['smarthome.led']; // Example feed keys for devices
+  const feedKeys = ['light-control']; // Example feed keys for devices
 
   useEffect(() => {
     // Function to fetch the current toggle states
     const fetchToggleStates = () => {
         feedKeys.forEach((key, index) => {
             fetchCurrentValueFromAdafruit(key).then(({ lastValue }) => {
-                if (index === 0) setPowerOn(lastValue === 'ON');
+                if (index === 0) setPowerOn(lastValue === '1');
             }).catch(error => console.error(`Error fetching state for ${key}:`, error));
         });
     };
@@ -67,7 +68,7 @@ const Toggle = () => {
     fetchToggleStates();
 
     // Set interval to fetch every 3 seconds
-    const intervalId = setInterval(fetchToggleStates, 3000);
+    const intervalId = setInterval(fetchToggleStates, 10000);
 
     // Cleanup function to clear the interval
     return () => clearInterval(intervalId);
@@ -75,7 +76,7 @@ const Toggle = () => {
 
   const updateAdafruit = async (key, newState) => {
       try {
-          await addNewValueToAdafruit(key, newState ? 'ON' : 'OFF');
+          await addNewValueToAdafruit(key, newState ? '1' : '2');
           console.log(`Updated ${key} to ${newState}`);
       } catch (error) {
           console.error(`Error updating ${key}:`, error);
@@ -83,6 +84,7 @@ const Toggle = () => {
   };
 
   const handleToggle = () => {
+    console.log('jnjonini')
       const newState = !powerOn;
       updateAdafruit(feedKeys[0], newState);
       setPowerOn(newState);
