@@ -52,10 +52,7 @@ const InputSlider = () => {
   };
 
   return (
-    <Box sx={{ width: 390, marginTop: '15px' }}>
-      <Typography sx={{ fontSize: '1.6rem', fontFamily: 'sans-serif', padding: 0, boxSizing: 'border-box' }} align="center" id="non-linear-slider" gutterBottom>
-        Fan
-      </Typography>
+    <Box sx={{ width: 300, marginTop: '15px' }}>
       <Slider
         aria-label="Temperature"
         valueLabelDisplay="auto"
