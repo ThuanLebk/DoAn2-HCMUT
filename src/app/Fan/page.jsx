@@ -1,5 +1,5 @@
 "use client"
-import FanCard from "../Components/FanCard"
+import FanCard from "../components/FanCard"
 
 const Fan = () => {
   return (

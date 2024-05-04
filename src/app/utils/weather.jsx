@@ -3,7 +3,7 @@ import {fetchCurrentValueFromAdafruit, fetchAllValueFromAdafruit} from './device
 
 export async function getDataTemp() {
     // const ADAFRUIT_IO_USERNAME = 'thuanlebk473';
-    // const ADAFRUIT_IO_KEY = 'aio_Pgfx0857GlUHjxcwo26G2a2qa0qI';
+    // const ADAFRUIT_IO_KEY = ;
     // const url = `https://io.adafruit.com/api/v2/${ADAFRUIT_IO_USERNAME}/feeds/${feedKey}/data/last`;
     // const response = await fetch("");
     // const data = await response.json();

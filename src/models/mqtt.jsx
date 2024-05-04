@@ -3,7 +3,7 @@ const mqtt = require('mqtt')
 // MQTT connects to Adafruit IO
 const client = mqtt.connect('mqtt://io.adafruit.com', {
     username: 'thuanlebk473',
-    password: 'aio_Pgfx0857GlUHjxcwo26G2a2qa0qI'
+    password: process.env.AIO_KEY
 });
 
 // Optionally publish messages to a topic
