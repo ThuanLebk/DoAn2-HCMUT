@@ -17,15 +17,15 @@ export const SIDENAV_ITEMS = [
     ],
   },
   {
-    title: 'History',
-    path: '/Log',
-    icon: <Icon icon="lucide:history" width="24" height="24" />,
-  },
-  {
     title: 'Statistics',
     path: '/Stat',
     icon: <Icon icon="lucide:line-chart" width="24" height="24" />,
   },
+  
+  //   title: 'Notifications',
+  //   path: '/notification',
+  //   icon: <Icon icon="lucide:notification" width="24" height="24" />,
+  // },
   {
     title: 'Sign out',
     path: '/Logout',

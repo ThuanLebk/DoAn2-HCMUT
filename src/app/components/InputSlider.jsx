@@ -14,19 +14,24 @@ const InputSlider = () => {
     const fetchAndSetInitialValue = async () => {
       try {
         const { lastValue } = await fetchCurrentValueFromAdafruit(feedKey);
-        setValue(lastValue);
+        let newValue=0
+        if(lastValue=='6'){newValue=0}
+        else if(lastValue=='3'){newValue=30}
+        else if(lastValue=='4'){newValue=70}
+        else if(lastValue=='5'){newValue=100}
+        setValue(newValue);
       } catch (error) {
         console.error('Failed to fetch initial value:', error);
       }
     };
 
     // Fetch the initial value once on component mount
-    fetchAndSetInitialValue();
+    // fetchAndSetInitialValue();
 
     // Set up an interval to fetch the value every second (1000 milliseconds)
-    const intervalId = setInterval(() => {
+     const intervalId = setInterval(() => {
       fetchAndSetInitialValue();
-    }, 3000);
+    }, 1000000);
 
     // Clear the interval on component unmount
     return () => clearInterval(intervalId);
@@ -41,10 +46,10 @@ const InputSlider = () => {
     console.log('Setting new value:', newvalue);
     try {
       let updateValue = ''
-      if(newvalue==0){updateValue='6'}
-      else if(newvalue<=30){updateValue='3'}
-      else if(newvalue<=70){updateValue='4'}
-      else if(newvalue<=100){updateValue='5'}
+      if(newvalue==0){updateValue='0'}
+      else if(newvalue<=30){updateValue='1'}
+      else if(newvalue<=70){updateValue='2'}
+      else if(newvalue<=100){updateValue='3'}
       await addNewValueToAdafruit(feedKey, updateValue);
     } catch (error) {
       console.error('Failed to set new value:', error);
@@ -56,7 +61,7 @@ const InputSlider = () => {
       <Slider
         aria-label="Temperature"
         valueLabelDisplay="auto"
-        step={10}
+        step={30}
         marks
         min={0}
         max={100}

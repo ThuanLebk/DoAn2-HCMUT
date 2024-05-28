@@ -49,13 +49,13 @@ const Weather = () => {
             <div className=" relative justify-between items-center mb-7">
               <div className=" mr-10 flex items-top justify-center">
                 <div className=" inline-block">
-                  <div className="border-none text-2xl font-bold">{t("cur.temp")}</div>
+                  <div className="border-none text-2xl font-bold">{t("Current temperature")}</div>
                   <div className="border-none font-bold text-2xl items-center">{dataTemp && 'Last value: ' + dataTemp.lastValue}</div>
                   <div className="border-none font-bold text-2xl items-center">{dataTemp &&'Last updated at: ' + convertUTCtoLocal(dataTemp.updatedAt.toString())}</div>
                 </div>
 
                 <div className=" inline-block ml-40">
-                  <div className="border-none text-2xl font-bold">{t("cur.light")}</div>
+                  <div className="border-none text-2xl font-bold">{t("Current light level")}</div>
                   <div className="border-none font-bold text-2xl">{dataLight && 'Last value: ' + dataLight.lastValue}</div>
                   <div className="border-none font-bold text-2xl">{dataLight && 'Last updated at: ' + convertUTCtoLocal(dataLight.updatedAt.toString())
 }</div>

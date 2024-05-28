@@ -19,6 +19,10 @@ export default function RegisterForm() {
       setError("All fields are necessary.");
       return;
     }
+    // if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)){
+    //   setError("Invalid email address.");
+    //   return;
+    // }
 
     try {
       const resUserExists = await fetch("api/userExists", {

@@ -4,7 +4,6 @@ export async function fetchCurrentValueFromAdafruit(feedKey) {
     const ADAFRUIT_IO_USERNAME = 'thuanlebk473';
     const ADAFRUIT_IO_KEY = process.env.AIO_KEY;
     const url = `https://io.adafruit.com/api/v2/${ADAFRUIT_IO_USERNAME}/feeds/${feedKey}/data/last`;
-
     try {
         const response = await axios.get(url, {
             headers: {
